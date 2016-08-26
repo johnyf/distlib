@@ -378,6 +378,8 @@ class Locator(object):
             if slist:
                 logger.debug('sorted list: %s', slist)
                 version = slist[-1]
+                # import pprint
+                # pprint.pprint(versions)
                 result = versions[version]
         if result:
             if r.extras:
@@ -1036,7 +1038,7 @@ class AggregatingLocator(Locator):
 # We use a legacy scheme simply because most of the dists on PyPI use legacy
 # versions which don't conform to PEP 426 / PEP 440.
 default_locator = AggregatingLocator(
-                    JSONLocator(),
+                    # JSONLocator(),
                     SimpleScrapingLocator('https://pypi.python.org/simple/',
                                           timeout=3.0),
                     scheme='legacy')
